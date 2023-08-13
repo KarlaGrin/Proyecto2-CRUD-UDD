@@ -1,0 +1,60 @@
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    background-color:cadetblue;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color:black;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .accion {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .escribe {
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .crear,
+  .editar, .borrar {
+    background-color: #ec1c1c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .contenedorpendientes {
+    width: 100%;
+
+  }
+
+  #pendientes {
+    list-style-type:georgian;
+    padding: 0;
+  }
+  
+  #pendientes li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid black;
+  }
+  

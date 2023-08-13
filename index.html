@@ -23,17 +23,15 @@
             <div>
                 <h2 class="accion">Ingresa tus pendientes</h2>
             </div>
-            <div>
-                <textarea class="escribe" type="text" rows="4" cols="50"> Comienza ahora... </textarea>
+            <div class="contenedor">
+                <textarea class="escribe" type="text" rows="4" cols="50" placeholder="Comienza ahora"></textarea>
                 <button class="crear" type="button" id="addpendiente">Crear Pendiente</button>
-                <button class="editar" type="button" id="BotonEditar"  style="display: none;">Editar Tarea</button>
+                <button class="editar" type="button" id="BotonEditar" style="display: none;">Editar Tarea</button>
+                <button class="borrar" type="button" id="BotonBorrar">Borrar Todo</button>
+                <div class="contenedorpendientes">
+                    <ul id="pendientes"></ul>
 
-                <ul id="lista"></ul>
-
-
-
-
-
+                </div>
             </div>
 
         </section>
