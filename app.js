@@ -5,6 +5,9 @@ const borrarTextoButton = document.querySelector('.borrar');
 const pendientesList = document.getElementById('pendientes');
 let editingIndex = -1;
 
+
+cargarPendientesDesdeLocalStorage();
+
 crearButton.addEventListener('click', function() {
   const tarea = textarea.value.trim();
   if (tarea !== '') {
@@ -17,6 +20,7 @@ crearButton.addEventListener('click', function() {
       textarea.value = '';
       editingIndex = -1;
     }
+    guardarPendientesEnLocalStorage();
   }
 });
 
@@ -45,12 +49,14 @@ function agregarPendiente(tarea) {
 
   borrarTareaButton.addEventListener('click', function() {
     pendientesList.removeChild(li);
+    guardarPendientesEnLocalStorage(); 
   });
 }
 
 function editarPendiente(index, nuevaTarea) {
   const li = pendientesList.children[index];
   li.querySelector('span').textContent = nuevaTarea;
+  guardarPendientesEnLocalStorage(); 
 }
 
 editarButton.addEventListener('click', function() {
@@ -63,3 +69,16 @@ editarButton.addEventListener('click', function() {
     editingIndex = -1;
   }
 });
+
+function cargarPendientesDesdeLocalStorage() {
+  const pendientes = JSON.parse(localStorage.getItem('pendientes')) || [];
+  pendientes.forEach(pendiente => {
+    agregarPendiente(pendiente);
+  });
+}
+
+function guardarPendientesEnLocalStorage() {
+  const pendientes = Array.from(pendientesList.children).map(li => li.querySelector('span').textContent);
+  localStorage.setItem('pendientes', JSON.stringify(pendientes));
+}
+
