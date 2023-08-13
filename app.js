@@ -1,6 +1,7 @@
 const textarea = document.querySelector('.escribe');
 const crearButton = document.querySelector('.crear');
 const editarButton = document.querySelector('.editar');
+const borrarTextoButton = document.querySelector('.borrar');
 const pendientesList = document.getElementById('pendientes');
 let editingIndex = -1;
 
@@ -13,10 +14,14 @@ crearButton.addEventListener('click', function() {
       editarPendiente(editingIndex, tarea);
       editarButton.style.display = 'none';
       crearButton.style.display = 'block';
-      textarea.value = 'Comienza ahora...';
+      textarea.value = '';
       editingIndex = -1;
     }
   }
+});
+
+borrarTextoButton.addEventListener('click', function() {
+  textarea.value = '';
 });
 
 function agregarPendiente(tarea) {
@@ -34,7 +39,7 @@ function agregarPendiente(tarea) {
   editarTareaButton.addEventListener('click', function() {
     editarButton.style.display = 'block';
     crearButton.style.display = 'none';
-    textarea.value = tarea;
+    textarea.value = li.querySelector('span').textContent;
     editingIndex = Array.from(pendientesList.children).indexOf(li);
   });
 
@@ -48,18 +53,13 @@ function editarPendiente(index, nuevaTarea) {
   li.querySelector('span').textContent = nuevaTarea;
 }
 
-// Evento para el botón de "Editar Tarea"
 editarButton.addEventListener('click', function() {
   const nuevaTarea = textarea.value.trim();
   if (nuevaTarea !== '') {
     editarPendiente(editingIndex, nuevaTarea);
     editarButton.style.display = 'none';
     crearButton.style.display = 'block';
-    textarea.value = 'Comienza ahora...';
+    textarea.value = '';
     editingIndex = -1;
   }
 });
-
-
-
-

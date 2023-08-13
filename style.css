@@ -39,7 +39,7 @@ body {
   }
   
   .contenedorpendientes {
-    width: 100%;
+    width: auto;
 
   }
 
@@ -49,8 +49,10 @@ body {
   }
   
   #pendientes li {
-    width: 100%;
+    width: fit-content;
+    height: fit-content;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content:space-evenly;
     margin-bottom: 10px;
